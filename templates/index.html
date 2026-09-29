@@ -4,80 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Content Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <main class="container">
+        <header class="topbar">
+            <a class="brand" href="/" aria-label="Draftroom home">
+                <span class="brand-mark" aria-hidden="true">d.</span>
+                <span>draftroom</span>
+            </a>
+            <span class="topbar-note"><span class="live-dot"></span> AI writing studio</span>
+        </header>
+
         <section class="hero">
-            <p class="badge">AI PRODUCTIVITY PROJECT</p>
-            <h1>AI Content Generator</h1>
-            <p>Create blogs, social posts, emails, cover letters and study notes using structured prompts.</p>
+            <p class="eyebrow">YOUR NEXT GOOD DRAFT STARTS HERE</p>
+            <h1>Make room for<br><em>better words.</em></h1>
+            <p>Set the direction. Get a first draft worth working with.</p>
         </section>
 
-        <section class="card">
-            <h2>Create Content</h2>
-
-            <label for="contentType">Content Type</label>
-            <select id="contentType">
-                <option>Blog Post</option>
-                <option>Social Media Post</option>
-                <option>Professional Email</option>
-                <option>Cover Letter</option>
-                <option>Study Notes</option>
-            </select>
-
-            <label for="topic">Topic *</label>
-            <textarea id="topic" rows="3" placeholder="Example: How AI is changing software development"></textarea>
-
-            <label for="audience">Target Audience</label>
-            <input id="audience" type="text" placeholder="Example: Beginner software developers">
-
-            <div class="grid">
-                <div>
-                    <label for="tone">Tone</label>
-                    <select id="tone">
-                        <option>Professional</option>
-                        <option>Friendly</option>
-                        <option>Simple</option>
-                        <option>Persuasive</option>
-                        <option>Creative</option>
-                    </select>
+        <div class="workspace">
+            <section class="panel compose-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">01 / THE BRIEF</p>
+                        <h2>What are we making?</h2>
+                    </div>
+                    <span class="heading-mark" aria-hidden="true">+</span>
                 </div>
 
-                <div>
-                    <label for="length">Length</label>
-                    <select id="length">
-                        <option>Short</option>
-                        <option selected>Medium</option>
-                        <option>Long</option>
-                    </select>
+                <label for="contentType">Format</label>
+                <select id="contentType">
+                    <option>Blog Post</option>
+                    <option>Social Media Post</option>
+                    <option>Professional Email</option>
+                    <option>Cover Letter</option>
+                    <option>Study Notes</option>
+                </select>
+
+                <label for="topic">Your topic <span class="required">*</span></label>
+                <textarea id="topic" rows="3" placeholder="What should this be about?"></textarea>
+
+                <label for="audience">Who is it for?</label>
+                <input id="audience" type="text" placeholder="e.g. First-time founders">
+
+                <div class="grid">
+                    <div>
+                        <label for="tone">Voice</label>
+                        <select id="tone">
+                            <option>Professional</option>
+                            <option>Friendly</option>
+                            <option>Simple</option>
+                            <option>Persuasive</option>
+                            <option>Creative</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="length">Length</label>
+                        <select id="length">
+                            <option>Short</option>
+                            <option selected>Medium</option>
+                            <option>Long</option>
+                        </select>
+                    </div>
                 </div>
+
+                <button id="generateBtn"><span>Generate draft</span><span aria-hidden="true">↗</span></button>
+                <p id="status" class="status" aria-live="polite"></p>
+            </section>
+
+            <section class="panel output-panel">
+                <div class="section-heading output-heading">
+                    <div>
+                        <p class="section-kicker">02 / THE FIRST PASS</p>
+                        <h2>Your draft</h2>
+                    </div>
+                    <button id="copyBtn" class="secondary" aria-label="Copy generated draft">Copy <span aria-hidden="true">↗</span></button>
+                </div>
+                <pre id="output">Your draft will take shape here.</pre>
+                <div class="output-footer"><span class="live-dot"></span> Ready when you are</div>
+            </section>
+        </div>
+
+        <section class="prompt-section">
+            <div class="prompt-intro">
+                <p class="section-kicker">A LITTLE PROMPT CRAFT</p>
+                <h2>Specificity changes everything.</h2>
+                <p>From a loose idea to a brief with direction.</p>
             </div>
 
-            <button id="generateBtn">Generate Content</button>
-            <p id="status"></p>
-        </section>
+            <div class="prompt-examples">
+                <div class="prompt-box basic-prompt">
+                    <span class="prompt-label">BEFORE</span>
+                    <h3>A starting point</h3>
+                    <code>Write a blog about AI.</code>
+                </div>
 
-        <section class="card output-card">
-            <div class="output-header">
-                <h2>Generated Content</h2>
-                <button id="copyBtn" class="secondary">Copy</button>
-            </div>
-            <pre id="output">Your generated content will appear here.</pre>
-        </section>
-
-        <section class="card">
-            <h2>Prompt Optimization</h2>
-            <p class="muted">This project demonstrates the difference between a vague prompt and a structured prompt.</p>
-
-            <div class="prompt-box">
-                <h3>Basic Prompt</h3>
-                <code>Write a blog about AI.</code>
-            </div>
-
-            <div class="prompt-box">
-                <h3>Optimized Prompt</h3>
-                <code>You are a professional technology writer. Write a beginner-friendly article about AI in software development. Use clear headings, practical examples, a professional tone and a short conclusion. Avoid unsupported statistics.</code>
+                <div class="prompt-box optimized-prompt">
+                    <span class="prompt-label">AFTER</span>
+                    <h3>A clearer direction</h3>
+                    <code>You are a professional technology writer. Write a beginner-friendly article about AI in software development. Use clear headings, practical examples, a professional tone and a short conclusion. Avoid unsupported statistics.</code>
+                </div>
             </div>
         </section>
     </main>
