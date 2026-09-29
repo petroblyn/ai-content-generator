@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <p class="badge">AI PRODUCTIVITY PROJECT</p>
+            <h1>AI Content Generator</h1>
+            <p>Create blogs, social posts, emails, cover letters and study notes using structured prompts.</p>
+        </section>
+
+        <section class="card">
+            <h2>Create Content</h2>
+
+            <label for="contentType">Content Type</label>
+            <select id="contentType">
+                <option>Blog Post</option>
+                <option>Social Media Post</option>
+                <option>Professional Email</option>
+                <option>Cover Letter</option>
+                <option>Study Notes</option>
+            </select>
+
+            <label for="topic">Topic *</label>
+            <textarea id="topic" rows="3" placeholder="Example: How AI is changing software development"></textarea>
+
+            <label for="audience">Target Audience</label>
+            <input id="audience" type="text" placeholder="Example: Beginner software developers">
+
+            <div class="grid">
+                <div>
+                    <label for="tone">Tone</label>
+                    <select id="tone">
+                        <option>Professional</option>
+                        <option>Friendly</option>
+                        <option>Simple</option>
+                        <option>Persuasive</option>
+                        <option>Creative</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="length">Length</label>
+                    <select id="length">
+                        <option>Short</option>
+                        <option selected>Medium</option>
+                        <option>Long</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="generateBtn">Generate Content</button>
+            <p id="status"></p>
+        </section>
+
+        <section class="card output-card">
+            <div class="output-header">
+                <h2>Generated Content</h2>
+                <button id="copyBtn" class="secondary">Copy</button>
+            </div>
+            <pre id="output">Your generated content will appear here.</pre>
+        </section>
+
+        <section class="card">
+            <h2>Prompt Optimization</h2>
+            <p class="muted">This project demonstrates the difference between a vague prompt and a structured prompt.</p>
+
+            <div class="prompt-box">
+                <h3>Basic Prompt</h3>
+                <code>Write a blog about AI.</code>
+            </div>
+
+            <div class="prompt-box">
+                <h3>Optimized Prompt</h3>
+                <code>You are a professional technology writer. Write a beginner-friendly article about AI in software development. Use clear headings, practical examples, a professional tone and a short conclusion. Avoid unsupported statistics.</code>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

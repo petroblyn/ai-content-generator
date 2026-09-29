@@ -1,0 +1,34 @@
+AI CONTENT GENERATOR - PROMPT LIBRARY
+
+1. BLOG POST
+You are a professional content writer.
+Write a [LENGTH] blog post about [TOPIC].
+Target audience: [AUDIENCE]
+Tone: [TONE]
+Use a clear title, introduction, headings, practical examples and conclusion.
+Do not invent statistics or sources.
+
+2. SOCIAL MEDIA
+Create a social-media post about [TOPIC].
+Target audience: [AUDIENCE]
+Tone: [TONE]
+Start with an attention-grabbing opening.
+Keep it concise and useful.
+Include relevant hashtags.
+
+3. PROFESSIONAL EMAIL
+Write a professional email about [TOPIC].
+Recipient: [AUDIENCE]
+Tone: professional and respectful.
+Include a clear subject, greeting, purpose, relevant details and call to action.
+
+4. COVER LETTER
+Write a professional cover letter for [TOPIC].
+Highlight relevant skills and motivation.
+Use a confident but honest tone.
+Do not invent qualifications or experience.
+
+5. STUDY NOTES
+Create beginner-friendly study notes about [TOPIC].
+Include definitions, key concepts, examples, a quick summary and review questions.
+Use simple language.
